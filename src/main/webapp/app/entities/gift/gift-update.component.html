@@ -1,0 +1,190 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-gift-heading" jhiTranslate="jhipsterTzApplicationApp.gift.home.createOrEditLabel">Create or edit a Gift</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!gift.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="gift.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                        [(ngModel)]="gift.amount" required/>
+                    <div [hidden]="!(editForm.controls.amount?.dirty && editForm.controls.amount?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.amount?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.amount?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.orderedAt" for="field_orderedAt">Ordered At</label>
+                    <div class="input-group">
+                        <input id="field_orderedAt" type="text" class="form-control" name="orderedAt" ngbDatepicker  #orderedAtDp="ngbDatepicker" [(ngModel)]="gift.orderedAt"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="orderedAtDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.orderedAt?.dirty && editForm.controls.orderedAt?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.orderedAt?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.fee" for="field_fee">Fee</label>
+                    <input type="number" class="form-control" name="fee" id="field_fee"
+                        [(ngModel)]="gift.fee" required/>
+                    <div [hidden]="!(editForm.controls.fee?.dirty && editForm.controls.fee?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.fee?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.fee?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.exchangeRate" for="field_exchangeRate">Exchange Rate</label>
+                    <input type="number" class="form-control" name="exchangeRate" id="field_exchangeRate"
+                        [(ngModel)]="gift.exchangeRate" required/>
+                    <div [hidden]="!(editForm.controls.exchangeRate?.dirty && editForm.controls.exchangeRate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.exchangeRate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.exchangeRate?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.totalAmount" for="field_totalAmount">Total Amount</label>
+                    <input type="number" class="form-control" name="totalAmount" id="field_totalAmount"
+                        [(ngModel)]="gift.totalAmount" required/>
+                    <div [hidden]="!(editForm.controls.totalAmount?.dirty && editForm.controls.totalAmount?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.totalAmount?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.totalAmount?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.sendFrom" for="field_sendFrom">Send From</label>
+                    <input type="text" class="form-control" name="sendFrom" id="field_sendFrom"
+                        [(ngModel)]="gift.sendFrom" required/>
+                    <div [hidden]="!(editForm.controls.sendFrom?.dirty && editForm.controls.sendFrom?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.sendFrom?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.message" for="field_message">Message</label>
+                    <input type="text" class="form-control" name="message" id="field_message"
+                        [(ngModel)]="gift.message" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.referenceNumber" for="field_referenceNumber">Reference Number</label>
+                    <input type="text" class="form-control" name="referenceNumber" id="field_referenceNumber"
+                        [(ngModel)]="gift.referenceNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.depositor" for="field_depositor">Depositor</label>
+                    <input type="text" class="form-control" name="depositor" id="field_depositor"
+                        [(ngModel)]="gift.depositor" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.displayAt" for="field_displayAt">Display At</label>
+                    <input type="text" class="form-control" name="displayAt" id="field_displayAt"
+                        [(ngModel)]="gift.displayAt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.senderId" for="field_senderId">Sender Id</label>
+                    <input type="number" class="form-control" name="senderId" id="field_senderId"
+                        [(ngModel)]="gift.senderId" required/>
+                    <div [hidden]="!(editForm.controls.senderId?.dirty && editForm.controls.senderId?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.senderId?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.senderId?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.recipientId" for="field_recipientId">Recipient Id</label>
+                    <input type="number" class="form-control" name="recipientId" id="field_recipientId"
+                        [(ngModel)]="gift.recipientId" required/>
+                    <div [hidden]="!(editForm.controls.recipientId?.dirty && editForm.controls.recipientId?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.recipientId?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.recipientId?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.giftcardId" for="field_giftcardId">Giftcard Id</label>
+                    <input type="number" class="form-control" name="giftcardId" id="field_giftcardId"
+                        [(ngModel)]="gift.giftcardId" required/>
+                    <div [hidden]="!(editForm.controls.giftcardId?.dirty && editForm.controls.giftcardId?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.giftcardId?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.giftcardId?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.giftcard" for="field_giftcard">Giftcard</label>
+                    <select class="form-control" id="field_giftcard" name="giftcard" [(ngModel)]="gift.giftcard" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="giftcardOption.id === gift.giftcard?.id ? gift.giftcard : giftcardOption" *ngFor="let giftcardOption of giftcards; trackBy: trackGiftcardById">{{giftcardOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.gift.recipient" for="field_recipient">Recipient</label>
+                    <select class="form-control" id="field_recipient" name="recipient" [(ngModel)]="gift.recipient" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="recipientOption.id === gift.recipient?.id ? gift.recipient : recipientOption" *ngFor="let recipientOption of recipients; trackBy: trackRecipientById">{{recipientOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

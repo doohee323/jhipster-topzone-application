@@ -41,6 +41,17 @@ public class CacheConfiguration {
             cm.createCache(io.github.jhipster.application.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Store.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Store.class.getName() + ".storeIds", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.GiftcardType.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.GiftcardType.class.getName() + ".giftcardTypeIds", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Giftcard.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Giftcard.class.getName() + ".giftcardIds", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Recipient.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Recipient.class.getName() + ".recipientIds", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Gift.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Gift.class.getName() + ".giftIds", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.GiftStatusHistory.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

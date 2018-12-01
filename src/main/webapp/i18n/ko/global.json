@@ -8,6 +8,12 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
+                "store": "Store",
+                "giftcardType": "Giftcard Type",
+                "giftcard": "Giftcard",
+                "recipient": "Recipient",
+                "gift": "Gift",
+                "giftStatusHistory": "Gift Status History",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

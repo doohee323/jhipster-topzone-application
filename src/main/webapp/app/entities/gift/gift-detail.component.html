@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="gift">
+            <h2><span jhiTranslate="jhipsterTzApplicationApp.gift.detail.title">Gift</span> {{gift.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.amount">Amount</span></dt>
+                <dd>
+                    <span>{{gift.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.orderedAt">Ordered At</span></dt>
+                <dd>
+                    <span>{{gift.orderedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.fee">Fee</span></dt>
+                <dd>
+                    <span>{{gift.fee}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.exchangeRate">Exchange Rate</span></dt>
+                <dd>
+                    <span>{{gift.exchangeRate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.totalAmount">Total Amount</span></dt>
+                <dd>
+                    <span>{{gift.totalAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.sendFrom">Send From</span></dt>
+                <dd>
+                    <span>{{gift.sendFrom}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.message">Message</span></dt>
+                <dd>
+                    <span>{{gift.message}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.referenceNumber">Reference Number</span></dt>
+                <dd>
+                    <span>{{gift.referenceNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.depositor">Depositor</span></dt>
+                <dd>
+                    <span>{{gift.depositor}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.displayAt">Display At</span></dt>
+                <dd>
+                    <span>{{gift.displayAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.senderId">Sender Id</span></dt>
+                <dd>
+                    <span>{{gift.senderId}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.recipientId">Recipient Id</span></dt>
+                <dd>
+                    <span>{{gift.recipientId}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.giftcardId">Giftcard Id</span></dt>
+                <dd>
+                    <span>{{gift.giftcardId}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.giftcard">Giftcard</span></dt>
+                <dd>
+                    <div *ngIf="gift.giftcard">
+                        <a [routerLink]="['/giftcard', gift.giftcard?.id, 'view']">{{gift.giftcard?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.gift.recipient">Recipient</span></dt>
+                <dd>
+                    <div *ngIf="gift.recipient">
+                        <a [routerLink]="['/recipient', gift.recipient?.id, 'view']">{{gift.recipient?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/gift', gift.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

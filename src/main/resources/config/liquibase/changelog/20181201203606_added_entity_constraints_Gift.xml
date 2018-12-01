@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Gift.
+    -->
+    <changeSet id="20181201203606-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="giftcard_id"
+                                 baseTableName="gift"
+                                 constraintName="fk_gift_giftcard_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="giftcard"/>
+
+        <addForeignKeyConstraint baseColumnNames="recipient_id"
+                                 baseTableName="gift"
+                                 constraintName="fk_gift_recipient_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recipient"/>
+
+    </changeSet>
+</databaseChangeLog>
