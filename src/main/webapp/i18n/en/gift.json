@@ -1,0 +1,37 @@
+{
+    "jhipsterTzApplicationApp": {
+        "gift": {
+            "home": {
+                "title": "Gifts",
+                "createLabel": "Create a new Gift",
+                "createOrEditLabel": "Create or edit a Gift",
+                "search": "Search for Gift"
+            },
+            "created": "A new Gift is created with identifier {{ param }}",
+            "updated": "A Gift is updated with identifier {{ param }}",
+            "deleted": "A Gift is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Gift {{ id }}?"
+            },
+            "detail": {
+                "title": "Gift"
+            },
+            "amount": "Amount",
+            "orderedAt": "Ordered At",
+            "fee": "Fee",
+            "exchangeRate": "Exchange Rate",
+            "totalAmount": "Total Amount",
+            "sendFrom": "Send From",
+            "message": "Message",
+            "referenceNumber": "Reference Number",
+            "depositor": "Depositor",
+            "displayAt": "Display At",
+            "senderId": "Sender Id",
+            "recipientId": "Recipient Id",
+            "giftcardId": "Giftcard Id",
+            "giftcard": "Giftcard",
+            "recipient": "Recipient",
+            "giftId": "Gift Id"
+        }
+    }
+}

@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterTzApplicationApp.giftcard.home.title">Giftcards</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-giftcard" [routerLink]="['/giftcard/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="jhipsterTzApplicationApp.giftcard.home.createLabel">
+            Create new Giftcard
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterTzApplicationApp.giftcard.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="giftcards">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span jhiTranslate="jhipsterTzApplicationApp.giftcard.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="amount"><span jhiTranslate="jhipsterTzApplicationApp.giftcard.amount">Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="unit"><span jhiTranslate="jhipsterTzApplicationApp.giftcard.unit">Unit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="giftcardTypeId"><span jhiTranslate="jhipsterTzApplicationApp.giftcard.giftcardTypeId">Giftcard Type Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="giftcardType.id"><span jhiTranslate="jhipsterTzApplicationApp.giftcard.giftcardType">Giftcard Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let giftcard of giftcards ;trackBy: trackId">
+                <td><a [routerLink]="['/giftcard', giftcard.id, 'view' ]">{{giftcard.id}}</a></td>
+                <td>{{giftcard.name}}</td>
+                <td>{{giftcard.amount}}</td>
+                <td>{{giftcard.unit}}</td>
+                <td>{{giftcard.giftcardTypeId}}</td>
+                <td>
+                    <div *ngIf="giftcard.giftcardType">
+                        <a [routerLink]="['../giftcard-type', giftcard.giftcardType?.id, 'view' ]" >{{giftcard.giftcardType?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/giftcard', giftcard.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/giftcard', giftcard.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'giftcard/'+ giftcard.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

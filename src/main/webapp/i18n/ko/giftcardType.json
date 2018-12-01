@@ -1,0 +1,25 @@
+{
+    "jhipsterTzApplicationApp": {
+        "giftcardType": {
+            "home": {
+                "title": "Giftcard Types",
+                "createLabel": "Create a new Giftcard Type",
+                "createOrEditLabel": "Create or edit a Giftcard Type",
+                "search": "Search for Giftcard Type"
+            },
+            "created": "A new Giftcard Type is created with identifier {{ param }}",
+            "updated": "A Giftcard Type is updated with identifier {{ param }}",
+            "deleted": "A Giftcard Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Giftcard Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Giftcard Type"
+            },
+            "name": "Name",
+            "storeId": "Store Id",
+            "store": "Store",
+            "giftcardTypeId": "Giftcard Type Id"
+        }
+    }
+}

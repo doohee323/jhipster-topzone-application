@@ -5,6 +5,16 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181201203602_added_entity_Store.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181201203603_added_entity_GiftcardType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181201203604_added_entity_Giftcard.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181201203605_added_entity_Recipient.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181201203606_added_entity_Gift.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181201203607_added_entity_GiftStatusHistory.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20181201203603_added_entity_constraints_GiftcardType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181201203604_added_entity_constraints_Giftcard.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181201203606_added_entity_constraints_Gift.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181201203607_added_entity_constraints_GiftStatusHistory.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

@@ -1,0 +1,75 @@
+entity Store {
+	id Integer required,
+	country String required,
+	name String required
+}
+
+entity GiftcardType {
+	id Integer required,
+	name String required,
+	storeId Integer required
+}
+
+entity Giftcard {
+	id Integer required,
+	name String required,
+	amount Double required,
+	unit String required,
+	giftcardTypeId Integer required
+}
+
+entity Recipient {
+	id Integer required,
+	name String required,
+	phoneNumber String,
+	email String,
+    createdAt LocalDate required,
+    userId Integer required
+}
+
+entity Gift {
+	id Integer required,
+	amount Double required,
+    orderedAt LocalDate required,
+    fee Double required,
+    exchangeRate Double required,
+    totalAmount Double required,
+    sendFrom String required,
+    message String,
+    referenceNumber String,
+    depositor String,
+    displayAt String,
+	senderId Integer required,
+	recipientId Integer required,
+	giftcardId Integer required
+}
+
+entity GiftStatusHistory {
+	id Integer required,
+    giftStatus String required,
+    createdAt LocalDate required,
+	giftId Integer required,
+	createdById Integer required
+}
+
+relationship OneToMany {
+	Recipient{recipientId} to Gift
+	Giftcard{giftcardId} to Gift
+	Gift{giftId} to GiftStatusHistory
+
+	GiftcardType{giftcardTypeId} to Giftcard
+	Store{storeId} to GiftcardType
+}
+
+// Set pagination options
+paginate Store, GiftcardType, Giftcard with infinite-scroll
+paginate Recipient, Gift, GiftStatusHistory with pagination
+
+// Use Data Transfert Objects (DTO)
+//dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Gift
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

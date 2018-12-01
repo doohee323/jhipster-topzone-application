@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-gift-status-history-heading" jhiTranslate="jhipsterTzApplicationApp.giftStatusHistory.home.createOrEditLabel">Create or edit a Gift Status History</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!giftStatusHistory.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="giftStatusHistory.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.giftStatusHistory.giftStatus" for="field_giftStatus">Gift Status</label>
+                    <input type="text" class="form-control" name="giftStatus" id="field_giftStatus"
+                        [(ngModel)]="giftStatusHistory.giftStatus" required/>
+                    <div [hidden]="!(editForm.controls.giftStatus?.dirty && editForm.controls.giftStatus?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.giftStatus?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.giftStatusHistory.createdAt" for="field_createdAt">Created At</label>
+                    <div class="input-group">
+                        <input id="field_createdAt" type="text" class="form-control" name="createdAt" ngbDatepicker  #createdAtDp="ngbDatepicker" [(ngModel)]="giftStatusHistory.createdAt"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="createdAtDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.createdAt?.dirty && editForm.controls.createdAt?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.createdAt?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.giftStatusHistory.giftId" for="field_giftId">Gift Id</label>
+                    <input type="number" class="form-control" name="giftId" id="field_giftId"
+                        [(ngModel)]="giftStatusHistory.giftId" required/>
+                    <div [hidden]="!(editForm.controls.giftId?.dirty && editForm.controls.giftId?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.giftId?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.giftId?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.giftStatusHistory.createdById" for="field_createdById">Created By Id</label>
+                    <input type="number" class="form-control" name="createdById" id="field_createdById"
+                        [(ngModel)]="giftStatusHistory.createdById" required/>
+                    <div [hidden]="!(editForm.controls.createdById?.dirty && editForm.controls.createdById?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.createdById?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.createdById?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTzApplicationApp.giftStatusHistory.gift" for="field_gift">Gift</label>
+                    <select class="form-control" id="field_gift" name="gift" [(ngModel)]="giftStatusHistory.gift" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="giftOption.id === giftStatusHistory.gift?.id ? giftStatusHistory.gift : giftOption" *ngFor="let giftOption of gifts; trackBy: trackGiftById">{{giftOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

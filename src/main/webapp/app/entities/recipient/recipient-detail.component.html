@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="recipient">
+            <h2><span jhiTranslate="jhipsterTzApplicationApp.recipient.detail.title">Recipient</span> {{recipient.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.recipient.name">Name</span></dt>
+                <dd>
+                    <span>{{recipient.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.recipient.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{recipient.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.recipient.email">Email</span></dt>
+                <dd>
+                    <span>{{recipient.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.recipient.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{recipient.createdAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTzApplicationApp.recipient.userId">User Id</span></dt>
+                <dd>
+                    <span>{{recipient.userId}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/recipient', recipient.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

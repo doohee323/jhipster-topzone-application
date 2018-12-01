@@ -1,0 +1,26 @@
+{
+    "jhipsterTzApplicationApp": {
+        "giftStatusHistory": {
+            "home": {
+                "title": "Gift Status Histories",
+                "createLabel": "Create a new Gift Status History",
+                "createOrEditLabel": "Create or edit a Gift Status History",
+                "search": "Search for Gift Status History"
+            },
+            "created": "A new Gift Status History is created with identifier {{ param }}",
+            "updated": "A Gift Status History is updated with identifier {{ param }}",
+            "deleted": "A Gift Status History is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Gift Status History {{ id }}?"
+            },
+            "detail": {
+                "title": "Gift Status History"
+            },
+            "giftStatus": "Gift Status",
+            "createdAt": "Created At",
+            "giftId": "Gift Id",
+            "createdById": "Created By Id",
+            "gift": "Gift"
+        }
+    }
+}
