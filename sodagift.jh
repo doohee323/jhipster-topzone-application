@@ -1,0 +1,8 @@
+entity Store {
+	id Integer required,
+	country String required,
+	name String required
+}
+
+// Set pagination options
+paginate Store with infinite-scroll
